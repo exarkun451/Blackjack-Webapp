@@ -1,6 +1,5 @@
 <body id="gamescreen">
-<h1><blink>-----Bender'$ Blackjack-----</blink></h1>
-<br/>
+<h1 id="BenderBJ">$$$--Bender Blackjack--$$$</h1>
 <% if @play_again%>
 	<% unless @any_money %>
 	<h4>Outta money! What do you wanna do about it?</h4>
@@ -17,12 +16,11 @@
 	<form id="exit_form" action='/game/exit' method='post'>
 		<input type='submit' class='btn btn-danger' value='Exit'>
 	</form>
+	<h3 color=blackw>.</h3>
 <%end%>
 
 
 <div>
-<br/>
-<br/>
 <h2 id="benders_cards">Bender's cards:</h2>
 	<% show_all = 0 %>
 	<% session[:dealer_cards].each do |card| %>
@@ -40,17 +38,6 @@
 </div>
 
 <div>
-<h2 id="players_cards"><%=session[:player_name]%>'s cards:</h2>
-	<% session[:player_cards].each do |card| %>
-		<%= card_image(card) %>
-	<%end%>
-	<h4>
-		<%= session[:player_name] %> has $<%= session[:player_money]%> and has bet $<%= session[:player_bet]%> this round!
-	</h4>
-</div>
-<br>
-
-<p>
 <% unless @end_game %>
 	<h4 id="query">What would you like to do
 	<%= session[:player_name] %>? You have <%= calculate_total(session[:player_cards]) %></h4>
@@ -60,6 +47,18 @@
 	<form id="stay_form" action="/game/player/stay" method='post'>
 		<input type='submit' class='btn btn-warning' value='Stay'>
 	</form>
+	<h3 color=black>.</h3>
+	<h4>
+		<%= session[:player_name] %> has $<%= session[:player_money]%> and has bet $<%= session[:player_bet]%> this round!
+	</h4>
 <%end%>
-</p>
+</div>
+
+<div>
+<h2 id="players_cards"><%=session[:player_name]%>'s cards:</h2>
+	<% session[:player_cards].each do |card| %>
+		<%= card_image(card) %>
+	<%end%>
+</div>
+<br>
 </body>
