@@ -1,0 +1,57 @@
+<body id="gamescreen">
+<h1><blink>-----Bender'$ Blackjack-----</blink></h1>
+<br/>
+
+<% if @play_again%>
+	<% if @any_money%>
+	<h4 id="query"> Would you like to play again?</h4>
+	<form id="restart_form" action='/game/restart' method='post'>
+		<input type='submit' class='btn btn-info' value='Restart Game'>
+	</form>
+	<%end%>
+	<form id="exit_form" action='/game/exit' method='post'>
+		<input type='submit' class='btn btn-error' value='Exit'>
+	</form>
+<%end%>
+
+<div>
+<h2 id="benders_cards">Bender's cards:</h2>
+	<% show_all = 0 %>
+	<% session[:dealer_cards].each do |card| %>
+		<% if @dealer_show == true%>
+			<%= card_image(card) %>
+		<% else %>
+			<% if show_all == 0 %>
+				<%= card_image(card) %>
+				<% show_all = 1 %>
+			<%else%>
+			<img src='/images/cards/cover.jpg'>
+			<%end%>
+		<%end%>
+	<%end%>
+</div>
+
+<div>
+<h2 id="players_cards"><%=session[:player_name]%>'s cards:</h2>
+	<% session[:player_cards].each do |card| %>
+		<%= card_image(card) %>
+	<%end%>
+	<h4>
+		<%= session[:player_name] %> has $<%= session[:player_money]%> and has bet $<%= session[:player_bet]%> this round!
+	</h4>
+</div>
+<br>
+
+<p>
+<% unless @end_game %>
+	<h4 id="query">What would you like to do
+	<%= session[:player_name] %>? You have <%= calculate_total(session[:player_cards]) %></h4>
+	<form id="hit_form" action="/game/player/hit" method='post'>
+		<input type='submit' class='btn btn-success' value='Hit'>
+	</form>
+	<form id="stay_form" action="/game/player/stay" method='post'>
+		<input type='submit' class='btn btn-warning' value='Stay'>
+	</form>
+<%end%>
+</p>
+</body>

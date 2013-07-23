@@ -1,0 +1,73 @@
+form#hit_form {
+	float: left;
+	margin-right: 10px;
+}
+form#stay_form {
+	float: left;
+}
+form#restart_form {
+	float: left;
+	margin-right: 10px;
+}
+form#exit_form {
+	float:left;
+}
+img.card_image {
+	margin: 0px 5px 5px 5px;
+}
+h3#new_player{
+	color:red;
+}
+h1 {
+	color:gray;
+}
+h2#bet_screen {
+	color:red;
+}
+
+h2#benders_cards {
+	color:gray;
+	font-family:bold;
+}
+
+h2#players_cards {
+	color:blue;
+	font-family:bold;
+}
+h4 {
+	color:red;
+}
+
+h4#query {
+	color:blue;
+}
+body#gamescreen {
+	float: center;
+}
+
+h1#exit_message {
+	color:red;
+}
+
+body {
+	margin: 0;
+	background-image: url('/images/Bender_Futurama.jpg');
+	background-size: 1440px 900px;
+	background-repeat: no-repeat;
+	display: compact;
+	font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body#exit_screen {
+	background-image: url('/images/Drinking_Bender.jpg');
+	background-size: 1440px 800px;
+}
+
+body#new_player {
+	margin: 0;
+	background-image: url('/images/Bendernator-crop.png');
+	background-size: 1440px 700px;
+	background-repeat: no-repeat;
+	display: compact;
+	font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-color:red;
+}
