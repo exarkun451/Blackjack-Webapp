@@ -1,20 +1,28 @@
 <body id="gamescreen">
 <h1><blink>-----Bender'$ Blackjack-----</blink></h1>
 <br/>
-
 <% if @play_again%>
+	<% unless @any_money %>
+	<h4>Outta money! What do you wanna do about it?</h4>
+	<form id="restart_form" action='/game/create_new_game' method='post'>
+		<input type='submit' class='btn btn-success' value='Try Again, Meatbag!!'>
+	</form>
+	<%end%>
 	<% if @any_money%>
 	<h4 id="query"> Would you like to play again?</h4>
 	<form id="restart_form" action='/game/restart' method='post'>
-		<input type='submit' class='btn btn-info' value='Restart Game'>
+		<input type='submit' class='btn btn-info' value='Next Round!'>
 	</form>
 	<%end%>
 	<form id="exit_form" action='/game/exit' method='post'>
-		<input type='submit' class='btn btn-error' value='Exit'>
+		<input type='submit' class='btn btn-danger' value='Exit'>
 	</form>
 <%end%>
 
+
 <div>
+<br/>
+<br/>
 <h2 id="benders_cards">Bender's cards:</h2>
 	<% show_all = 0 %>
 	<% session[:dealer_cards].each do |card| %>

@@ -28,6 +28,7 @@ h2#bet_screen {
 h2#benders_cards {
 	color:gray;
 	font-family:bold;
+	float:left;
 }
 
 h2#players_cards {

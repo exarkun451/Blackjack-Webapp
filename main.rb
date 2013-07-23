@@ -164,6 +164,10 @@ post '/game/exit' do
 	erb :exit
 end
 
+post '/game/create_new_game' do
+	redirect '/new_player'
+end
+
 get '/end_game' do
 	player = calculate_total(session[:player_cards])
 	computer = calculate_total(session[:dealer_cards])
